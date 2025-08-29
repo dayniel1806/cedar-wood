@@ -28,7 +28,7 @@ const Hero = () => {
       ))}
       <div className="overlay">
         <div className="quoteBox">
-          <p>"I like the play equipment."</p>
+          <p>"No doubt the Best School in Magboro! "</p>
         </div>
       </div>
     </section>
