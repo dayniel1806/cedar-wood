@@ -1,0 +1,159 @@
+:root{
+    --primary-color: #166534;
+    --secondary-color: #FF9800;
+}
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  position: absolute;
+  top: 0;
+  width: 98%;
+  z-index: 10;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+}
+
+.schoolName {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.schoolName span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.fadeDown {
+  transform: translateY(-20px);
+  animation: fadeDown 2s ease-out forwards;
+}
+
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* makes it wrap on small screens */
+  padding: 12px 20px;
+  background: #b7b7b7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+}
+
+/* subtle underline animation */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--secondary-color);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* highlight button */
+.highlight {
+  background: var(--primary-color);
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #fff !important;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.highlight:hover {
+  background: var(--secondary-color); /* darker shade on hover */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+}
